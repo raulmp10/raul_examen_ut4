@@ -63,8 +63,9 @@ return [
     |
     */
 
-    'logo' => '<b>Sergio</b>Admin',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    //cambiamos el logo y el nombre Superior izquierda de ADMINLTE
+    'logo' => '<b>Examen</b>Raul',
+    'logo_img' => 'imagenes/1.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',

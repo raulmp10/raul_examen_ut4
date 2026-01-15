@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MensajeController;
+use App\Http\Controllers\NotasController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +18,16 @@ Route::post('/mensaje', [MensajeController::class, 'store'])->name('mensaje.stor
 Route::get('/muro', [MensajeController::class, 'index'])
     ->middleware('auth')    // Protege la ruta para usuarios autenticados
     ->name('mensaje.index');
+
+
+    //Ruta de la Vista Notas Protegidas
+
+Route::middleware(['auth'])->group(function () {
+ Route::resource('notas', NotasController::class);
+
+ Route::get('/notas/index', [NotasController::class, 'index'])->name('notas.index');
+
+});
 
 // Ruta de administración protegida con middleware 'auth'
 Route::middleware(['auth'
@@ -42,3 +53,4 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
